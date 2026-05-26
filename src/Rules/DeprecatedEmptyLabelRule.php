@@ -60,8 +60,8 @@ class DeprecatedEmptyLabelRule implements FixableRule, ProvidesAgentFix
             return [];
         }
 
-        // Skip Table Columns - they don't have hiddenLabel() method
-        if ($this->isTableColumn($node, $context)) {
+        // Skip Table Columns and Filters - they don't have hiddenLabel() method
+        if ($this->isTableColumn($node, $context) || $this->isFilter($node, $context)) {
             return [];
         }
 
@@ -131,6 +131,22 @@ class DeprecatedEmptyLabelRule implements FixableRule, ProvidesAgentFix
         $shortName = $this->classBasename($rootClass);
 
         return str_ends_with($shortName, 'Column');
+    }
+
+    /**
+     * Check if the method chain originates from a Filter class.
+     */
+    private function isFilter(MethodCall $node, Context $context): bool
+    {
+        $rootClass = $this->getRootClassName($node, $context);
+
+        if ($rootClass === null) {
+            return false;
+        }
+
+        $shortName = $this->classBasename($rootClass);
+
+        return str_ends_with($shortName, 'Filter');
     }
 
     /**
