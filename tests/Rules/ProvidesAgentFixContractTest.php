@@ -9,6 +9,7 @@ use Filacheck\Rules\DeprecatedFormsGetRule;
 use Filacheck\Rules\DeprecatedFormsSetRule;
 use Filacheck\Rules\DeprecatedGetTableQueryRule;
 use Filacheck\Rules\DeprecatedImageColumnSizeRule;
+use Filacheck\Rules\DeprecatedImageEditorAspectRatiosRule;
 use Filacheck\Rules\DeprecatedMutateFormDataUsingRule;
 use Filacheck\Rules\DeprecatedPlaceholderRule;
 use Filacheck\Rules\DeprecatedReactiveRule;
@@ -29,6 +30,7 @@ dataset('agent-fix rules', [
     'DeprecatedFormsSetRule' => [DeprecatedFormsSetRule::class],
     'DeprecatedGetTableQueryRule' => [DeprecatedGetTableQueryRule::class],
     'DeprecatedImageColumnSizeRule' => [DeprecatedImageColumnSizeRule::class],
+    'DeprecatedImageEditorAspectRatiosRule' => [DeprecatedImageEditorAspectRatiosRule::class],
     'DeprecatedMutateFormDataUsingRule' => [DeprecatedMutateFormDataUsingRule::class],
     'DeprecatedPlaceholderRule' => [DeprecatedPlaceholderRule::class],
     'DeprecatedReactiveRule' => [DeprecatedReactiveRule::class],

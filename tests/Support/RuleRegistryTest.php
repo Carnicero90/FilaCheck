@@ -69,6 +69,7 @@ it('registers all rules from FilacheckServiceProvider', function () {
             \Filacheck\Rules\DeprecatedFormsGetRule::class,
             \Filacheck\Rules\DeprecatedFormsSetRule::class,
             \Filacheck\Rules\DeprecatedImageColumnSizeRule::class,
+            \Filacheck\Rules\DeprecatedImageEditorAspectRatiosRule::class,
             \Filacheck\Rules\DeprecatedViewPropertyRule::class,
             \Filacheck\Rules\ActionInBulkActionGroupRule::class,
             \Filacheck\Rules\DeprecatedBulkActionsRule::class,
