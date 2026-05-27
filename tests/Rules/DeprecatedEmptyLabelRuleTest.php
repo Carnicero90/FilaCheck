@@ -343,3 +343,69 @@ PHP;
     $this->assertViolationCount(1, $violations);
     expect($violations[0]->suggestion)->toContain('hiddenLabel()');
 });
+
+it('skips SelectFilter with empty label', function () {
+    $code = <<<'PHP'
+<?php
+
+use Filament\Tables\Filters\SelectFilter;
+
+class TestResource
+{
+    public function table(): array
+    {
+        return [
+            SelectFilter::make('status')->label(''),
+        ];
+    }
+}
+PHP;
+
+    $violations = $this->scanCode(new DeprecatedEmptyLabelRule, $code);
+
+    $this->assertNoViolations($violations);
+});
+
+it('skips TernaryFilter with empty label', function () {
+    $code = <<<'PHP'
+<?php
+
+use Filament\Tables\Filters\TernaryFilter;
+
+class TestResource
+{
+    public function table(): array
+    {
+        return [
+            TernaryFilter::make('active')->label(''),
+        ];
+    }
+}
+PHP;
+
+    $violations = $this->scanCode(new DeprecatedEmptyLabelRule, $code);
+
+    $this->assertNoViolations($violations);
+});
+
+it('skips $this->label(\'\') in a class extending a Filter', function () {
+    $code = <<<'PHP'
+<?php
+
+use Filament\Tables\Filters\SelectFilter;
+
+class StatusFilter extends SelectFilter
+{
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->label('');
+    }
+}
+PHP;
+
+    $violations = $this->scanCode(new DeprecatedEmptyLabelRule, $code);
+
+    $this->assertNoViolations($violations);
+});
