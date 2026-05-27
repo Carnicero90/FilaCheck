@@ -51,6 +51,10 @@ return [
         'enabled' => true,
     ],
 
+    'deprecated-image-editor-aspect-ratios' => [
+        'enabled' => true,
+    ],
+
     'deprecated-view-property' => [
         'enabled' => true,
     ],

@@ -11,6 +11,7 @@ use Filacheck\Rules\DeprecatedFormsGetRule;
 use Filacheck\Rules\DeprecatedFormsSetRule;
 use Filacheck\Rules\DeprecatedGetTableQueryRule;
 use Filacheck\Rules\DeprecatedImageColumnSizeRule;
+use Filacheck\Rules\DeprecatedImageEditorAspectRatiosRule;
 use Filacheck\Rules\DeprecatedMutateFormDataUsingRule;
 use Filacheck\Rules\DeprecatedPlaceholderRule;
 use Filacheck\Rules\DeprecatedReactiveRule;
@@ -76,6 +77,7 @@ class FilacheckServiceProvider extends ServiceProvider
             DeprecatedFormsGetRule::class,
             DeprecatedFormsSetRule::class,
             DeprecatedImageColumnSizeRule::class,
+            DeprecatedImageEditorAspectRatiosRule::class,
             DeprecatedViewPropertyRule::class,
             ActionInBulkActionGroupRule::class,
             DeprecatedBulkActionsRule::class,
